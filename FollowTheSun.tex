@@ -2,7 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumerate}
-\usepackage[margin = .75in]{geometry}
+\usepackage[margin = 1in]{geometry}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{float}
@@ -10,32 +10,50 @@
 \begin{document}
 
 \title{Follow the Sun: Learning North from Images}
-\author{Brandon Minor | Jack Morrison}
+\author{Brandon Minor \& Jack Morrison}
 \maketitle
+
+%%%%%%%%%%%%%%%%%%
+
+\newcommand{\degrees}{$^\circ$ }
 
 %%%%%%%%%%%%%%%%%%
 \section{Abstract}
 
-Humans have navigated by the sun for millennia, relying on its predictable path across the sky to determine their own heading relative to north. We have applied Machine Learning algorithms to this practice in an attempt to do the same through static images. Data was collected from three different areas in the US, all with different latitudes. 
+Humans have navigated by the sun for millennia, relying on its predictable path across the sky to determine their own heading relative to north. We have applied Machine Learning algorithms to this practice in an attempt to do the same through images with only RGB data. Data was collected from three different areas in the US, all with different latitudes. 
 %% Fill in more later
 
 %%%%%%%%%%%%%%%%%%
-\section{Methodology}
+\section{Experiment Setup}
 
+%%
 \subsection{Data Collection}
-To train our parameters, our datasets need to include the heading and timestamp of every image. We produced an Android application to facilitate this process. Images were captured as fast as possible by the phone's camera and saved on external memory, along with the magnetometer data that the phone registered at that timestamp. The magnetometer registered the difference, in degrees, of the heading of the phone with respect to gravity and magnetic north. Images were only captured if the phone was nearly vertical, i.e. pitch of the phone was within $\pm$2$^\circ$. The user would spin in place until enough photos were registered. 
+Datasets consisted of a series of images taken from one spot while rotating at least a full 360\degrees.
+To train our parameters, our datasets need to include the heading and timestamp of every image. We produced an Android application to facilitate this process. Images were captured as fast as possible by the phone's camera and saved on external memory. Every photo taken had a related orientation vector that the phone registered at that timestamp. This vector was produced by the phone's magnetometer and registered the difference, in degrees, of the heading of the phone with respect to gravity and magnetic north. Images were only captured if the phone was nearly vertical, i.e. pitch of the phone was within $\pm$3\degrees.
 
-\subsection{}
+%%
+\subsection{Labeling}
+Magnetometer data registered true north as 0\degrees of yaw, with the degree increasing clockwise around the compass rose. The yaw of each image served as the training label used in every machine learning process. 
 
-
-
-
+%%
+\subsection{Programming}
+All Machine Learning algorithms used (described in Section 3) were part of the scikit-learn toolkit for Python. scikit-learn also performed cross-validation on datasets provided. All plotting was done in the matplotlib library. 
 
 %%%%%%%%%%%%%%%%%%
 \section{Learning}
 
+%%
+\subsection{Classifier Algorithms}
+The main objective of this project is to formulate a reliable classifier from our training set; if we can label the orientation of one set of images with low range of error, we would like to do the same for other data sets under similar conditions. As such, the classifiers will break the 360 compass degrees into twelve 30-degree increments and perform multi-class learning through these algorithms: 
+Support Vector Machines - We will use polynomial and radial basis function kernels
+Gaussian Mixture Models - k will be set to 12 
+Decision Forests
 
 
+
+
+%%
+\subsection{Regression Algorithms}
 
 
 
