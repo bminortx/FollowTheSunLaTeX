@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  8 DEC 2013 15:46
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  8 DEC 2013 17:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -305,31 +305,42 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 14.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) [1
+)
+<./HOGpic.png, id=1, 701.62125pt x 430.60875pt>
+File: ./HOGpic.png Graphic file (type png)
+ <use ./HOGpic.png>
+Package pdftex.def Info: ./HOGpic.png used on input line 54.
+(pdftex.def)             Requested size: 210.48799pt x 129.18361pt.
+ [1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-(./FollowTheSun.aux) ) 
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<./RANSAC.png, id=16, 685.05937pt x 437.635pt>
+File: ./RANSAC.png Graphic file (type png)
+ <use ./RANSAC.png>
+Package pdftex.def Info: ./RANSAC.png used on input line 66.
+(pdftex.def)             Requested size: 205.5194pt x 131.2915pt.
+ [2 <./HOGpic.png> <./RANSAC.png>] [3] (./FollowTheSun.aux) ) 
 Here is how much of TeX's memory you used:
- 3918 strings out of 493488
- 57528 string characters out of 3141326
- 123277 words of memory out of 3000000
- 7172 multiletter control sequences out of 15000+200000
+ 3935 strings out of 493488
+ 57754 string characters out of 3141326
+ 122277 words of memory out of 3000000
+ 7186 multiletter control sequences out of 15000+200000
  11994 words of font info for 46 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,6n,38p,645b,199s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-9.pfb>
-Output written on FollowTheSun.pdf (2 pages, 90309 bytes).
+ 38i,8n,38p,645b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texliv
+e/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2012/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on FollowTheSun.pdf (3 pages, 2067262 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 51 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -40,10 +40,42 @@ All Machine Learning algorithms used (described in Section 3) were part of the s
 %%%%%%%%%%%%%%%%%%
 \section{Learning}
 
+\subsection{Features}
+Brightness was the key component for all features. First iterations of testing were performed on full images, but this method was changed to analyzing images scaled down by a factor of 70 to increase performance and give a better ratio of features/datapoints. 
+
+Features: 
+\begin{enumerate}[1]
+\item Sum brightness of each row/column
+\item Histogram of Oriented Gradients (HOG): Bins of pixels are formed into histograms representing the gradient of brightness levels in the bin. Feature count is dependent on the size of the bin. 
+\begin{figure}[H]
+\centering
+\setlength\fboxsep{2pt}
+\setlength\fboxrule{0pt}
+\fbox{\includegraphics[scale=.3]{./HOGpic}}
+\caption{
+HOG
+}
+\end{figure}
+
+
+\item RANSAC and shadow detection: using a point cloud of dark pixels, RANSAC is performed to get a basic linear function that fits the trend. This is then compared to other photos, and similar trends are classiied similarly.
+\begin{figure}[H]
+\centering
+\setlength\fboxsep{2pt}
+\setlength\fboxrule{0pt}
+\fbox{\includegraphics[scale=.3]{./RANSAC}}
+\caption{
+RANSAC
+}
+\end{figure}
+
+\end{enumerate}
+
+
 \subsection{Cross-validation and Labeling}
 Cross validation was performed on all datasets. After experimenting with both n-fold and leave-one-out validation, we used leave-one-out for all of our tests. 
 
-Magnetometer data registered magnetic north as 0\degrees of yaw, with the degree increasing clockwise around the compass rose. The yaw of each image served as the training label used in every machine learning process. To create an easier metric with which to understand the error that came from our analyses, we did two tests on each dataset: one to measure error wrt North-South, and another wrt East-West. 
+Magnetometer data registered magnetic north as 0\degrees of yaw, with the degree increasing clockwise around the compass rose. The yaw of each image served as the training label used in every machine learning process. To create an easier metric with which to understand the error that came from our analyses, we did two tests on each dataset: one to measure error w.r.t. North-South, and another w.r.t. East-West. North-South was transformed through a cosine function to get the distance from North (the y-axis), while the East-West transformation was through a sin function for East (the x-axis). 
 
 %%
 \subsection{Classifier Algorithms}
@@ -55,11 +87,10 @@ The main objective of this project is to formulate a reliable classifier; if we 
 
 %%
 \subsection{Regression Algorithms}
-Beyond this comparison of algorithms, we also performed regression function training. Our regression functions will take our feature vectors and output an angle in degrees, with zero degrees being magnetic north. Our initial experiments used Linear Regression, using both LASSO and Ridge loss functions. 
-
+Beyond this comparison of algorithms, we also performed regression function training. Our regression functions take our feature vectors and output an angle in degrees, with zero degrees being magnetic north. Our initial experiments used Linear Regression, using both LASSO and Ridge loss functions. 
 
 %%%%%%%%%%%%%%%%%%
-\section{Results and Analysis}
+\section{Testing and Analysis}
 
 
 
