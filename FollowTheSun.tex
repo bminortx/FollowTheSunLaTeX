@@ -2,10 +2,11 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumerate}
-\usepackage[margin = 1in]{geometry}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{fullpage}
+\usepackage{subcaption}
 
 \begin{document}
 
@@ -30,17 +31,33 @@ Humans have navigated by the sun for millennia, relying on its predictable path 
 %%
 \subsection{Data Collection}
 Datasets consisted of a series of images taken from one spot while rotating at least a full 360\degrees.
-To train our parameters, our datasets need to include the heading and timestamp of every image. We produced an Android application to facilitate this process. Images were captured as fast as possible by the phone's camera and saved on external memory. Every photo taken had a related orientation vector that the phone registered at that timestamp. This vector was produced by the phone's magnetometer and registered the difference, in degrees, of the heading of the phone with respect to gravity and magnetic north. Images were only captured if the phone was nearly vertical, i.e. pitch of the phone was within $\pm$3\degrees.
+To train our parameters, our datasets need to include the heading and timestamp of every image. We produced an Android application to facilitate this process. Images were captured as fast as possible by the phone's camera and saved on external memory. Every photo taken had a related orientation vector that the phone registered at that timestamp. This vector was produced by the phone's magnetometer and registered the difference, in degrees, of the heading of the phone with respect to gravity and magnetic north. Images were only captured if the phone was nearly vertical, i.e.\ pitch of the phone was within $\pm$5\degrees of horizontal, as measured by the phone's internal sensors.
 
 %%
 \subsection{Programming}
-All Machine Learning algorithms used (described in Section 3) were part of the scikit-learn toolkit for Python. scikit-learn also performed cross-validation on datasets provided. All plotting was done in the matplotlib library. 
+All Machine Learning algorithms used (described in Section 3) were part of the scikit-learn toolkit for Python. scikit-learn also performed cross-validation on datasets provided. All plotting was done with the matplotlib library. 
 
 %%%%%%%%%%%%%%%%%%
 \section{Learning}
 
+\begin{figure}[h!]
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./features_img.eps}
+    \caption{Sample image from the Woodley Park dataset}
+    \label{img:woodley_sample}
+  \end{subfigure}
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./Brightness_data.eps}
+    \caption{Feature vector plot for image \ref{img:woodley_sample}}
+    \label{img:woodley_features}
+  \end{subfigure}
+  \caption{Sample image and features used in learning}
+\end{figure}
+
 \subsection{Features}
-Brightness was the key component for all features. First iterations of testing were performed on full images, but this method was changed to analyzing images scaled down by a factor of 70 to increase performance and give a better ratio of features to datapoints. For these initial tests, the sum of the brightness of each row/column were used. 
+Each image in our dataset has over 900,000 pixels so feature extraction is necessary. To use every pixel of every image as a feature for learning would not only be computationally infeasible, it would also make learning extremely difficult. We chose to use a simple image brightness-based feature set for this image. To compute the feature vector, each image was converted to grayscale and scaled to $18x10$. The columns and rows of this ``thumbnail'' image were then summed to produce a rough plot of the shape of the brightness through the image. These vectors (one for the column sums, one for the row sums) were then concatenated to produce the feature vector you can see in Figure \ref{img:woodley_features}.
 
 \subsection{Cross-validation and Labeling}
 Cross validation was performed on all datasets. After experimenting with both n-fold and leave-one-out validation, we used leave-one-out for all of our tests. 
@@ -63,16 +80,6 @@ Beyond this comparison of algorithms, we also performed regression function trai
 \section{Testing and Analysis}
 \subsection{SVM - Linear kernel}
 Linear kernel proved to be very unsuccessful for our purposes. Due to the non-linear nature of our data (See fig. 
-
-\begin{figure}[H]
-\centering
-\setlength\fboxsep{2pt}
-\setlength\fboxrule{0pt}
-\fbox{\includegraphics[scale=.3]{./Brightness_data.eps}}
-\caption{
-Brightness Sums. Columns represent the value given by the brightness sum. The x-axis
-}
-\end{figure}
 
 \subsection{SVM - Ponynomial kernel, degree 3}
 
