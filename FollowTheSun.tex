@@ -4,6 +4,7 @@
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{fullpage}
 \usepackage{float}
 \usepackage{fullpage}
 \usepackage{subcaption}
@@ -56,8 +57,10 @@ The processing for this project was done using the Python programming language a
   \caption{Sample image and features used in learning}
 \end{figure}
 
+%%
 \subsection{Features}
 Each image in our dataset has over 900,000 pixels so feature extraction is necessary. To use every pixel of every image as a feature for learning would not only be computationally infeasible, it would also make learning extremely difficult. We chose to use a simple image brightness-based feature set for this image. To compute the feature vector, each image was converted to grayscale and scaled to $18x10$. The columns and rows of this ``thumbnail'' image were then summed to produce a rough plot of the shape of the brightness through the image. These vectors (one for the column sums, one for the row sums) were then concatenated to produce the feature vector you can see in Figure \ref{img:woodley_features}.
+
 
 \subsection{Labeling}
 The true headings of the images were captured by the Android application along with the images. The magnetometer  registered magnetic north as 0\degrees and increases clockwise to 360\degrees. These headings were used as truth labels for learning and testing.
@@ -69,6 +72,7 @@ The main objective of this project is to formulate a reliable classifier; if we 
 \item Support Vector Machines - We used polynomiall radial basis function, and linear kernels. Since there were twelve different incriments, the SVM treated the dataset as having 12 distinct classes. 
 \item Decision Forests
 \end{enumerate}
+Squared error was used for training classifier algorithms.
 
 %%
 \subsection{Regression Algorithms}
@@ -76,33 +80,146 @@ Beyond this comparison of algorithms, we also performed regression function trai
 
 %%%%%%%%%%%%%%%%%%
 \section{Testing and Analysis}
-\subsection{SVM - Linear kernel}
-Linear kernel proved to be very unsuccessful for our purposes. Due to the non-linear nature of our data (See fig. 
 
-\subsection{SVM - Ponynomial kernel, degree 3}
+The results presented below were run off a series of 11 datasets taken around the Woodley Park neighborhood in DC, around 4:00 in the afternoon. All total, there were 546 images with which to train on. Plots shown 
 
-\subsection{SVM - RBF kernel}
+%%
+\subsection{Classifiers}
+Our inintial results from our Classifier tests are presented below. Note that classifier results were presented in 12\degrees classes; a mean of 5 is equivalent to 60\degrees: 
+
+\begin{center}
+\begin{tabular}{l|c|c|c}
+Classifier & Mean & Std Dev & Median\\
+\hline
+SVM - RBF & 5.811 & 4.346 & 5.0 \\
+SVM - Polynomial, Deg 3 & 6.051 & 6.500 & 4.0 \\
+SVM - Linear & 7.518 & 6.123 & 6.0 \\
+Decision Trees & 7.121 & 6.552 & 5.0
+\end{tabular}
+\end{center}
+
+ Linear kernel proved to be very unsuccessful for our purposes. Due to the non-linear nature of our data (See Fig. 1), a linear kernel didn't describe data accurately.
+
+%%RBF kernel
+\begin{figure}[H]
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/SVM_with_RBF_Kernel_heading_plot.eps}
+    \label{img:woodley_sample}
+  \end{subfigure}
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/SVM_with_RBF_Kernel_heading_bar.eps}
+    \label{img:woodley_features}
+  \end{subfigure}
+  \caption{Error for SVM classification with an RBF kernel}
+\end{figure}
 
 
-\subsection{Linear Regression - LASSO vs. Ridge}
+
+%%Polynomial kernel
+\begin{figure}[H]
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/SVM_with_Polynomial_Kernel_heading_plot.eps}
+    \label{img:woodley_sample}
+  \end{subfigure}
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/SVM_with_Polynomial_Kernel_heading_bar.eps}
+    \label{img:woodley_features}
+  \end{subfigure}
+  \caption{Error for SVM classification with a polynomial kernel}
+\end{figure}
 
 
 
-\subsection{Decision Trees}
+
+%%Linear kernel
+\begin{figure}[H]
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/Linear_SVM_heading_plot.eps}
+    \label{img:woodley_sample}
+  \end{subfigure}
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/Linear_SVM_heading_bar.eps}
+    \label{img:woodley_features}
+  \end{subfigure}
+  \caption{Error for SVM classification with a linear kernel}
+\end{figure}
+
+%%Decision Trees
+\begin{figure}[H]
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/Decision_tree_heading_plot.eps}
+    \label{img:woodley_sample}
+  \end{subfigure}
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/Decision_tree_heading_bar.eps}
+    \label{img:woodley_features}
+  \end{subfigure}
+  \caption{Error for Decision Tree Classification}
+\end{figure}
 
 
 
+%%
+\subsection{Regression}
 
+\begin{center}
+\begin{tabular}{l|c|c|c}
+Regression & Mean & Std Dev & Median\\
+\hline
+Linear - LASSO & 61.618 & 49.551 & 48.272 \\
+Linear - Ridge & 61.515 & 49.852 & 49.428
+\end{tabular}
+\end{center}
 
+%% LASSO
+\begin{figure}[H]
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/LASSO_heading_plot.eps}
+    \label{img:woodley_sample}
+  \end{subfigure}
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/LASSO_heading_bar.eps}
+    \label{img:woodley_features}
+  \end{subfigure}
+  \caption{Error for Linear Regression with LASSO}
+\end{figure}
 
-
+%% Ridge
+\begin{figure}[H]
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/Ridge_heading_plot.eps}
+    \label{img:woodley_sample}
+  \end{subfigure}
+  \begin{subfigure}[!h]{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./woodley/Ridge_heading_bar.eps}
+    \label{img:woodley_features}
+  \end{subfigure}
+  \caption{Error for Linear Regression with Ridge}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%
 \section{Further Work}
 
 %%
-\subsection{More Features}
+\subsection{More Datasets}
+Though most of our algorithms were run on a fairly large dataset (see Learning::Features), there is always room for more training and testing data. We would like to run the same tests on datasets with over one thousand images included. In addition, we would like to test on areas outside of DC;
 
+
+%%
+\subsection{More Features}
+There are a couple of image analysis tools that we would like to utilize to extract some different features from our imgaes: 
 \begin{enumerate}[1.]
 \item Histogram of Oriented Gradients (HOG): Bins of pixels are formed into histograms representing the gradient of brightness levels in the bin. Feature count is dependent on the size of the bin. 
 \begin{figure}[H]
