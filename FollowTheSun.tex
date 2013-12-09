@@ -59,10 +59,8 @@ All Machine Learning algorithms used (described in Section 3) were part of the s
 \subsection{Features}
 Each image in our dataset has over 900,000 pixels so feature extraction is necessary. To use every pixel of every image as a feature for learning would not only be computationally infeasible, it would also make learning extremely difficult. We chose to use a simple image brightness-based feature set for this image. To compute the feature vector, each image was converted to grayscale and scaled to $18x10$. The columns and rows of this ``thumbnail'' image were then summed to produce a rough plot of the shape of the brightness through the image. These vectors (one for the column sums, one for the row sums) were then concatenated to produce the feature vector you can see in Figure \ref{img:woodley_features}.
 
-\subsection{Cross-validation and Labeling}
-Cross validation was performed on all datasets. After experimenting with both n-fold and leave-one-out validation, we used leave-one-out for all of our tests. 
-
-Magnetometer data registered magnetic north as 0\degrees of yaw, with the degree increasing clockwise around the compass rose. The yaw of each image served as the training label used in every machine learning process.
+\subsection{Labeling}
+The true headings of the images were captured by the Android application along with the images. The magnetometer  registered magnetic north as 0\degrees and increases clockwise to 360\degrees. These headings were used as truth labels for learning and testing.
 
 %%
 \subsection{Classifier Algorithms}
