@@ -218,7 +218,7 @@ HOG
 }
 \end{figure}
 
-\item RANSAC and shadow detection: using a point cloud of dark pixels, RANSAC is performed to get a basic linear function that fits the trend. This is then compared to other photos, and similar trends are classiied similarly.
+\item RANSAC and shadow detection: using a point cloud of dark pixels, RANSAC is performed to get a basic linear function that fits the trend. This is then compared to other photos, and similar trends are classified similarly.
 \begin{figure}[H]
 \centering
 \setlength\fboxsep{2pt}
@@ -233,11 +233,9 @@ RANSAC (proposed)
 
 \section{Conclusion}
 
-The results of this project are encouraging. Using simple brightness metrics, we obtained rough heading measurements in images. Given the coarseness and simplicity of the extracted feature vectors, we did not expected meaningful results.
+The results of this project are encouraging. Using simple brightness metrics, we obtained rough heading measurements in images. Given the coarseness and simplicity of the extracted feature vectors, we did not expect such meaningful results. Moving forwards, more features and more datasets will be useful in improving prediction accuracy and reliability. The polynomial kernel's results were the most encouraging. This points to a likely nonlinear relationship between our features and labels which may be related to the periodic nature of our data, i.e.\ 0\degrees is actually adjacent to 360\degrees.
 
-% MOAR Features
-
-% MOAR degrees
+We feel that these results could have meaningful impact on areas when single photo location or viewing angle classification would be useful, such as in robotics or policing. We hope to continue improving our learning approaches using the promising results presented here.
 
 \bibliographystyle{plain}
 \bibliography{FollowTheSun}
