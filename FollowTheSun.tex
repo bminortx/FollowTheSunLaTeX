@@ -34,8 +34,8 @@ Datasets consisted of a series of images taken from one spot while rotating at l
 To train our parameters, our datasets need to include the heading and timestamp of every image. We produced an Android application to facilitate this process. Images were captured as fast as possible by the phone's camera and saved on external memory. Every photo taken had a related orientation vector that the phone registered at that timestamp. This vector was produced by the phone's magnetometer and registered the difference, in degrees, of the heading of the phone with respect to gravity and magnetic north. Images were only captured if the phone was nearly vertical, i.e.\ pitch of the phone was within $\pm$5\degrees of horizontal, as measured by the phone's internal sensors.
 
 %%
-\subsection{Programming}
-All Machine Learning algorithms used (described in Section 3) were part of the scikit-learn toolkit for Python. scikit-learn also performed cross-validation on datasets provided. All plotting was done with the matplotlib library. 
+\subsection{Software}
+The processing for this project was done using the Python programming language and the scikit-learn \cite{scikit-learn} machine learning package. Plotting was done with the matplotlib library. 
 
 %%%%%%%%%%%%%%%%%%
 \section{Learning}
@@ -128,8 +128,6 @@ RANSAC (proposed)
 
 \end{enumerate}
 
-
-
-
-
+\bibliographystyle{plain}
+\bibliography{FollowTheSun}
 \end{document}
