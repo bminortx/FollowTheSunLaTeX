@@ -1,25 +1,25 @@
 Loading image 545
 Learning heading from 546 images with a Ridge.
-Mean scores 61.5154709633
-Std scores 49.852460187
-Median scores 49.42826217
-Learning heading from 546 images with a Decision tree.
-Mean scores 7.12087912088
-Std scores 6.55241224183
-Median scores 5.0
-Learning heading from 546 images with a SVM with RBF Kernel.
-Mean scores 5.81135531136
-Std scores 4.34660610247
-Median scores 5.0
-Learning heading from 546 images with a SVM with Polynomial Kernel.
-Mean scores 6.05128205128
-Std scores 6.50085428347
+Mean scores 56.5704160182
+Std scores 43.7855432672
+Median scores 45.9622852975
+Learning heading from 546 images with a Decision_tree.
+Mean scores 4.55860805861
+Std scores 3.88964638216
 Median scores 4.0
-Learning heading from 546 images with a Linear SVM.
-Mean scores 7.51831501832
-Std scores 6.12332310151
-Median scores 6.0
+Learning heading from 546 images with a SVM_with_RBF_Kernel.
+Mean scores 5.0695970696
+Std scores 3.77415427573
+Median scores 4.5
+Learning heading from 546 images with a SVM_with_Polynomial Kernel.
+Mean scores 4.21062271062
+Std scores 3.92530495964
+Median scores 3.0
+Learning heading from 546 images with a Linear_SVM.
+Mean scores 5.61172161172
+Std scores 3.91196272316
+Median scores 5.0
 Learning heading from 546 images with a LASSO.
-Mean scores 61.6181093791
-Std scores 49.5519767837
-Median scores 48.2722057271
+Mean scores 57.9917357527
+Std scores 44.9510265297
+Median scores 46.9261874759
