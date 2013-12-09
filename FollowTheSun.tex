@@ -92,10 +92,10 @@ Our inintial results from our Classifier tests are presented below.
 \begin{tabular}{l|c|c|c}
 Classifier & Mean & Std Dev & Median\\
 \hline
-SVM - RBF & 5.811 & 4.346 & 5.0 \\
-SVM - Polynomial, Deg 3 & 6.051 & 6.500 & 4.0 \\
-SVM - Linear & 7.518 & 6.123 & 6.0 \\
-Decision Trees & 7.121 & 6.552 & 5.0
+SVM - RBF & 5.069 & 2.774 & 4.0 \\
+SVM - Polynomial, Deg 3 & 4.210 & 3.925 & 3.0 \\
+SVM - Linear & 5.611 & 3.912 & 5.0 \\
+Decision Trees & 4.558 & 3.889 & 4.0
 \end{tabular}
 \end{center}
 
@@ -162,8 +162,8 @@ Decision trees showed an error pattern similar to the linear kernel SVM; this co
 \begin{tabular}{l|c|c|c}
 Regression & Mean & Std Dev & Median\\
 \hline
-Linear - LASSO & 61.618 & 49.551 & 48.272 \\
-Linear - Ridge & 61.515 & 49.852 & 49.428
+Linear - LASSO & 61.57.991 & 44.951 & 46.926 \\
+Linear - Ridge & 56.570 & 43.785 & 45.962
 \end{tabular}
 \end{center}
 
@@ -199,11 +199,6 @@ Both linear regressions exhibit similar behavior to the SVMs above; there's a di
 \section{Further Work}
 
 %%
-\subsection{More Datasets}
-Though most of our algorithms were run on a fairly large dataset (see Learning::Features), there is always room for more training and testing data. We would like to run the same tests on datasets with over one thousand images included. In addition, we would like to test on areas outside of DC;
-
-
-%%
 \subsection{More Features}
 There are a couple of image analysis tools that we would like to utilize to extract some different features from our imgaes: 
 \begin{enumerate}[1.]
@@ -230,6 +225,10 @@ RANSAC (proposed)
 \end{figure}
 
 \end{enumerate}
+
+%%
+\subsection{More Datasets}
+Though most of our algorithms were run on a fairly large dataset (see Learning::Features), there is always room for more training and testing data. We would like to run the same tests on datasets with over one thousand images included. In addition, we would like to test on areas outside of DC; if our cassifiers could be honed to some degree of accuracy in Woodley Park, we hope they would perform similarly on datasets from Ft. Worth or Connecticut. Unfortunately, the datasets we collected from those places did not have enough images in them to warrant learning or testing, so they were ignored for the purposes of this report. 
 
 \section{Conclusion}
 
