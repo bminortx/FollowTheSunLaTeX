@@ -7,7 +7,7 @@
 \usepackage{fullpage}
 \usepackage{float}
 \usepackage{fullpage}
-\usepackage{subcaption}
+\usepackage{hyperref}
 
 \begin{document}
 
@@ -36,7 +36,7 @@ To train our parameters, our datasets need to include the heading and timestamp 
 
 %%
 \subsection{Software}
-The processing for this project was done using the Python programming language and the scikit-learn \cite{scikit-learn} machine learning package. Plotting was done with the matplotlib library. 
+The processing for this project was done using the Python programming language and the scikit-learn \cite{scikit-learn} machine learning package. Plotting was done with the matplotlib library. All the code for this project can be found at \url{http://github.com/chachi/LearningNorth}.
 
 %%%%%%%%%%%%%%%%%%
 \section{Learning}
@@ -46,20 +46,20 @@ The processing for this project was done using the Python programming language a
     \centering
     \includegraphics[width=\textwidth]{./features_img.eps}
     \caption{Sample image from the Woodley Park dataset}
-    \label{img:woodley_sample}
+    \label{fig:woodley_sample}
   \end{subfigure}
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./Brightness_data.eps}
-    \caption{Feature vector plot for image \ref{img:woodley_sample}}
-    \label{img:woodley_features}
+    \caption{Feature vector plot for image \ref{fig:woodley_sample}}
+    \label{fig:woodley_features}
   \end{subfigure}
   \caption{Sample image and features used in learning}
 \end{figure}
 
 %%
 \subsection{Features}
-Each image in our dataset has over 900,000 pixels so feature extraction is necessary. To use every pixel of every image as a feature for learning would not only be computationally infeasible, it would also make learning extremely difficult. We chose to use a simple image brightness-based feature set for this image. To compute the feature vector, each image was converted to grayscale and scaled to $18x10$. The columns and rows of this ``thumbnail'' image were then summed to produce a rough plot of the shape of the brightness through the image. These vectors (one for the column sums, one for the row sums) were then concatenated to produce the feature vector you can see in Figure \ref{img:woodley_features}.
+Each image in our dataset has over 900,000 pixels so feature extraction is necessary. To use every pixel of every image as a feature for learning would not only be computationally infeasible, it would also make learning extremely difficult. We chose to use a simple image brightness-based feature set for this image. To compute the feature vector, each image was converted to grayscale and scaled to $18x10$. The columns and rows of this ``thumbnail'' image were then summed to produce a rough plot of the shape of the brightness through the image. These vectors (one for the column sums, one for the row sums) were then concatenated to produce the feature vector you can see in Figure \ref{fig:woodley_features}.
 
 
 \subsection{Labeling}
@@ -105,12 +105,10 @@ Decision Trees & 7.121 & 6.552 & 5.0
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/SVM_with_RBF_Kernel_heading_plot.eps}
-    \label{img:woodley_sample}
   \end{subfigure}
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/SVM_with_RBF_Kernel_heading_bar.eps}
-    \label{img:woodley_features}
   \end{subfigure}
   \caption{Error for SVM classification with an RBF kernel}
 \end{figure}
@@ -122,12 +120,10 @@ Decision Trees & 7.121 & 6.552 & 5.0
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/SVM_with_Polynomial_Kernel_heading_plot.eps}
-    \label{img:woodley_sample}
   \end{subfigure}
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/SVM_with_Polynomial_Kernel_heading_bar.eps}
-    \label{img:woodley_features}
   \end{subfigure}
   \caption{Error for SVM classification with a polynomial kernel}
 \end{figure}
@@ -140,12 +136,10 @@ Decision Trees & 7.121 & 6.552 & 5.0
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/Linear_SVM_heading_plot.eps}
-    \label{img:woodley_sample}
   \end{subfigure}
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/Linear_SVM_heading_bar.eps}
-    \label{img:woodley_features}
   \end{subfigure}
   \caption{Error for SVM classification with a linear kernel}
 \end{figure}
@@ -155,12 +149,10 @@ Decision Trees & 7.121 & 6.552 & 5.0
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/Decision_tree_heading_plot.eps}
-    \label{img:woodley_sample}
   \end{subfigure}
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/Decision_tree_heading_bar.eps}
-    \label{img:woodley_features}
   \end{subfigure}
   \caption{Error for Decision Tree Classification}
 \end{figure}
@@ -184,12 +176,10 @@ Linear - Ridge & 61.515 & 49.852 & 49.428
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/LASSO_heading_plot.eps}
-    \label{img:woodley_sample}
   \end{subfigure}
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/LASSO_heading_bar.eps}
-    \label{img:woodley_features}
   \end{subfigure}
   \caption{Error for Linear Regression with LASSO}
 \end{figure}
@@ -199,12 +189,10 @@ Linear - Ridge & 61.515 & 49.852 & 49.428
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/Ridge_heading_plot.eps}
-    \label{img:woodley_sample}
   \end{subfigure}
   \begin{subfigure}[!h]{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./woodley/Ridge_heading_bar.eps}
-    \label{img:woodley_features}
   \end{subfigure}
   \caption{Error for Linear Regression with Ridge}
 \end{figure}
@@ -244,6 +232,14 @@ RANSAC (proposed)
 \end{figure}
 
 \end{enumerate}
+
+\section{Conclusion}
+
+The results of this project are encouraging. Using simple brightness metrics, we obtained rough heading measurements in images. Given the coarseness and simplicity of the extracted feature vectors, we did not expected meaningful results.
+
+% MOAR Features
+
+% MOAR degrees
 
 \bibliographystyle{plain}
 \bibliography{FollowTheSun}
